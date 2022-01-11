@@ -1,8 +1,9 @@
 <template>
-<h1>I'm the second component. My name is <strong>{{ name }}</strong>.</h1>
+<h1>I'm the second component. My name is <strong>{{ name }}</strong> and my favorite color is {{ color }}.</h1>
 </template>
 
 <script setup lang="ts">
+import { inject } from 'vue';
 
 const props = defineProps({
   name: {
@@ -10,4 +11,6 @@ const props = defineProps({
     default: "Com Ponent II"
   }
 })
+
+const color = inject("favoriteColor");
 </script>
