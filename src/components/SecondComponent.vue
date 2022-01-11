@@ -3,5 +3,11 @@
 </template>
 
 <script setup lang="ts">
-const name = "Com Ponent II";
+
+const props = defineProps({
+  name: {
+    type: String,
+    default: "Com Ponent II"
+  }
+})
 </script>
