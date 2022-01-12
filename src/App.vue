@@ -5,7 +5,16 @@ import { provide, toRef, watch } from 'vue';
 import HelloWorld from './components/HelloWorld.vue'
 import SecondComponent from './components/SecondComponent.vue'
 
-import createI18n from './translations';
+import { I18nInjectionKey, createI18n } from "vue-i18n";
+import messages from './translations';
+
+const i18ninstance = createI18n({
+    legacy: false,
+    locale: "en",
+    messages,
+});
+
+provide(I18nInjectionKey, i18ninstance);
 
 const props = defineProps({
   name: {
@@ -17,13 +26,11 @@ const props = defineProps({
 })
 
 watch(() => props.locale, () => {
-  console.log("locale = " + props.locale);
-  // this.$i18n.locale = val
-
+  // TODO: type error
+  i18ninstance.global.locale.value = props.locale;
 });
 
 provide("favoriteColor", "pink");
-provide("i18n", createI18n);
 provide("selectedLocale", toRef(props, 'locale'));
 </script>
 

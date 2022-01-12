@@ -1,5 +1,3 @@
-import { createI18n } from "vue-i18n";
-
 const messages = {
     de: {
         imTheSecond: "Ich bin die zweite Komponente.",
@@ -10,10 +8,4 @@ const messages = {
         myNameIs: "My name is <strong>{name}</strong> and my favorite color is {color}."
     }
 }
-
-export default createI18n({
-    legacy: false,
-    locale: "de",
-    fallbackLocale: "de",
-    messages,
-});
+export default messages;
